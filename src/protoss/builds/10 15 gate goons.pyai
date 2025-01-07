@@ -1,29 +1,64 @@
 use_build_vs(Terran)
+
 8 Pylon
+8 Supply Depot
 10 Gateway
+10 Barracks
 11 Assimilator
 13 Core
+13 Factory
 15 Gateway
-wait_build(1, Core)
+15 Barracks
+
+build(1, Core, 80)
+build(1, Engineering Bay, 80)
+build(1, Academy, 80)
+build(1, Factory, 80)
+build(1, Armory, 80)
+player_need(1, Machine Shop)  # Required for Goliath
 upgrade(1, Singularity Charge, 80)
-train(1, Dragoon)
+
+wait_force(1, Dragoon)
+wait_force(1, Goliath)
+
 build_start(2, Pylon)
-train(3, Dragoon)
+build_start(2, Supply Depot, 30)
+
+wait_force(3, Dragoon)
+wait_force(3, Goliath)
+
 build_start(16, Probe)
+build_start(16, SCV, 30)
 build_start(3, Pylon)
+build_start(3, Supply Depot, 30)
 build_start(17, Probe)
-train(5, Dragoon)
-build_start(18, Probe)
-build_start(19, Probe)
-build_start(20, Probe)
-attack_train(5, Dragoon)
+build_start(17, SCV, 30)
+
 wait_force(5, Dragoon)
+wait_force(5, Goliath)
+
+build_start(18, Probe)
+build_start(18, SCV, 30)
+build_start(19, Probe)
+build_start(19, SCV, 30)
+build_start(20, Probe)
+build_start(20, SCV, 30)
+
+attack_clear()
+attack_add(5, Dragoon)
+attack_add(5, Goliath)
 attack_async()
+attack_clear()
 
 if random(128):
     build_start(4, Pylon)
-    attack_train(8, Dragoon)
+    build_start(4, Supply Depot, 30)
     wait_force(8, Dragoon)
+    wait_force(8, Goliath)
+    attack_clear()
+    attack_add(8, Dragoon)
+    attack_add(8, Goliath)
     attack_async()
+    attack_clear()
 
 expand(1, expansion)

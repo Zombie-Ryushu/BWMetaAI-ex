@@ -1,6 +1,9 @@
 build_finish(1, Nexus, 50)
 build_finish(1, Probe, 50)
 build_finish(1, Pylon, 50)
+build_finish(1, Command Center, 30)
+build_finish(1, SCV, 30)
+build_finish(1, Supply Depot, 30)
 
 include(freemoney)
 
@@ -8,9 +11,13 @@ multirun_loop:
     defenseclear()
     if owned(Gateway):
         defense_ground(Zealot)
+        defense_ground(Marine)
+        defense_ground(Medic)
     if owned(Cybernetics Core):
         defense_ground(Dragoon)
+        defense_ground(Marine)
         defense_air(Dragoon)
+        defense_air(Goliath)
     if owned(Templar Archives):
         if enemyowns(Spire):
             defense_ground(Archon)
@@ -24,11 +31,12 @@ multirun_loop:
     if owned(Fleet Beacon):
         defense_ground(Carrier)
 
+
 multirun_loop:
     if enemyownscloaked():
         build_finish(1, Pylon, 50)
         player_need(1, Forge)
-        build_start(1, Cannon, 50) # Must be lower priority than that forge at 80
+        build_start(1, Cannon, 50)
         build_start(2, Cannon, 50)
         wait_until(12)
         if owned(Cybernetics Core):
@@ -40,28 +48,38 @@ multirun_loop:
     if enemyownsairtech():
         build_finish(1, Pylon, 50)
         player_need(1, Forge)
-            # We get just the forge then wait to see an air unit until we get cannons
-            # This will hopefully be fast enough to stop mutas in time in most positions
-            #
-            # This wait prevents us from building defensive cannons in all bases
-            # if if the starport/stargate is just being used as a tech structure for now
-            loop:
-                if enemyownsair():
-                    build(2, Cannon, 50)
-                    stop()
+        loop:
+            if enemyownsair():
+                build(2, Cannon, 50)
+                stop()
 
 wait_until(12)
 build_finish(1, Pylon, 50)
 build(1, Gateway, 50)
+build(1, Barracks, 30)
+build(2, Supply Depot, 30)
 
 wait_until(21)
 build_finish(1, Pylon, 50)
 build_finish(2, Pylon, 50)
+build_finish(2, Supply Depot, 30)
 player_need(1, Forge)
 build(2, Gateway, 50)
+build(1, Barracks, 30)
 build(4, Cannon, 50)
-
-loop:
-    if owned(Fleet Beacon):
+build(1, Factory, 50)
+build(1, Armory, 50)
+build(1, Science Facility, 50)
+player_need(1, Machine Shop)
+build(1, Machine Shop, 80)
+build(1, Starport, 80)
+player_need(1, Control Tower)
+build(1, Control Tower, 80)
+player_need(1, Comsat Station)
+build(1, Comsat Station, 80)
+player_need(1, Physics Lab)
+build(1, Physics Lab, 80)
+  
+ if owned(Fleet Beacon):
         build(1, Stargate, 50)
         stop()

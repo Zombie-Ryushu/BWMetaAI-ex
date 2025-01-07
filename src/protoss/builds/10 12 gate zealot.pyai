@@ -1,20 +1,35 @@
 use_build_vs(Zerg, Protoss)
 build_weight(.5)
 8 Pylon
+8 Supply Depot
 10 Gateway
+10 Barracks
 12 Gateway
+12 Barracks
 13 Zealot
+13 Marine
 defensebuild_gg(1, Zealot)
+defensebuild_gg(1, Marine)
 15 Pylon
+15 Supply Depot
 train(3, Zealot)
+train(3, Marine)
 build_start(1, Assimilator)
 build_start(3, Pylon)
+build_start(3, Supply Depot, 30)
 train(5, Zealot)
+train(5, Marine)
 build_start(1, Cybernetics Core)
+build_start(1, Factory, 30)
 build_start(18, Probe)
+build_start(18, SCV, 30)
 attack_add(5, Zealot)
+attack_add(5, Marine)
 attack_async()
 build_start(4, Pylon)
+build_start(4, Supply Depot, 30)
 build_start(20, Probe)
+build_start(20, SCV, 30)
 train(1, Dragoon)
+train(1, Goliath)
 expand(1, expansion)

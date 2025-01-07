@@ -1,28 +1,68 @@
 use_build_vs(Terran, Protoss)
+
 build_start(8, Probe, 150)
+build_start(8, SCV, 30)
 build_start(1, Pylon)
+build_start(1, Supply Depot, 30)
 build_start(12, Probe, 150)
+build_start(12, SCV, 30)
+
 wait(300)
 expand(1, expansion)
-# 1 probe is lost to the expansion
+
 build_start(12, Probe)
+build_start(12, SCV, 30)
 build_start(1, Gateway)
+build_start(1, Barracks, 30)
 build_start(13, Probe)
+build_start(13, SCV, 30)
 build_start(1, Assimilator)
 build_start(2, Pylon)
+build_start(2, Supply Depot, 30)
 build_start(14, Probe)
-wait_build(1, Gateway)
+build_start(14, SCV, 30)
+
+build(1, Gateway, 80)
 build_start(1, Core)
+build_start(1, Factory, 30)
+build(1, Barracks, 80)
 train(1, Zealot)
+train(1, Marine)
+
 build_start(15, Probe)
+build_start(15, SCV, 30)
 build_start(2, Gateway)
+build_start(2, Barracks, 30)
 build_start(17, Probe)
-wait_build(1, Core)
-train(1, Dragoon)
+build_start(17, SCV, 30)
+
+build(1, Core, 80)
+build(1, Engineering Bay, 80)
+build(1, Academy, 80)
+build(1, Factory, 80)
+player_need(1, Machine Shop)
+player_need(1, Armory)  # Required for Goliath
+build(1, Armory, 80)   # Wait for Armory to complete
+
+wait_force(1, Dragoon)
+wait_force(1, Goliath)
+
 build_start(18, Probe)
-train(2, Dragoon)
+build_start(18, SCV, 30)
+
+wait_force(2, Dragoon)
+wait_force(2, Goliath)
+
 build_start(19, Probe)
-train(3, Dragoon)
+build_start(19, SCV, 30)
+
+wait_force(3, Dragoon)
+wait_force(3, Goliath)
+
 build_start(3, Pylon)
+build_start(3, Supply Depot, 30)
 build_start(20, Probe)
-train(4, Dragoon)
+build_start(20, SCV, 30)
+
+wait_force(4, Dragoon)
+wait_force(4, Goliath)

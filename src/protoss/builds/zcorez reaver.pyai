@@ -1,29 +1,62 @@
-use_build_vs(Protoss)
+use_build_vs(Terran, Protoss)
+
 8 Pylon
+8 Supply Depot
 10 Gateway
+10 Barracks
 12 Gas
 13 Zealot
+13 Marine
 defenseuse_gg(1, Zealot)
+defenseuse_gg(1, Marine)
 16 Pylon
+16 Supply Depot
 17 Core
+17 Factory
 18 Zealot
+18 Marine
 22 Dragoon
+22 Siege Tank
 23 Pylon
+23 Supply Depot
 24 Robo
+24 Starport
 26 Dragoon
+26 Siege Tank
 28 Gateway
+28 Barracks
 28 Pylon
+28 Supply Depot
 28 Robotics Support Bay
+28 Control Tower
 28 Dragoon
+28 Siege Tank
 30 Shuttle
+30 Dropship
 32 Dragoon
+32 Siege Tank
 34 Pylon
+34 Supply Depot
 34 Reaver
-train(6, Dragoon)
-wait_train(1, Reaver)
+
+wait_build(1, Cybernetics Core)
+wait_build(1, Factory)
+wait_build(1, Machine Shop)  # Required for Siege Tank
+wait_build(1, Robotics Support Bay)  # Required for Reaver
+wait_build(1, Robotics Facility)  # Required for Shuttle
+
+wait_force(1, Reaver)  # Changed from train/wait_train to wait_force
+
 wait_force(6, Dragoon)
+wait_force(6, Siege Tank)
+
+attack_clear()
 attack_add(2, Zealot)
+attack_add(2, Marine)
 attack_add(6, Dragoon)
+attack_add(6, Siege Tank)
 attack_add(1, Reaver)
 attack_add(1, Shuttle)
+attack_add(1, Dropship)
 attack_async()
+attack_clear()

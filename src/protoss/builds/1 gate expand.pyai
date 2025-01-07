@@ -1,34 +1,57 @@
 use_build_vs(Zerg)
 
 8 Pylon
+8 Supply Depot
 10 Gateway
+10 Barracks
 12 Pylon
+12 Supply Depot
 13 Zealot
+13 Marine
 17 Zealot
+17 Marine
 21 Expand
 22 Zealot
+22 Marine
 24 Pylon
+24 Supply Depot
 build_start(1, assimilator)
 build(20, probe, 75)
+build(20, SCV, 30)
 train(4, zealot)
+train(4, Marine)
 build_start(1, core)
+build_start(1, Factory, 30)
 build_start(1, forge)
+build_start(1, Engineering Bay, 30)
 farms_timing()
 train(5, zealot)
+train(5, Marine)
 build_start(1, stargate)
+build_start(1, Starport, 30)
 upgrade(1, ground weapons, 30)
+upgrade(1, Infantry Weapons, 30)
 train(6, zealot)
+train(6, Marine)
 build_start(1, citadel of adun)
 do_morph(1, corsair)
+train(1, Wraith)
 train(7, zealot)
+train(7, Marine)
 build_start(4, gateway)
+build_start(4, Barracks, 30)
+build_start(5, Supply Depot, 30)
 wait_force(1, corsair)
 attack_add(1, corsair)
+attack_add(1, Wraith)
 attack_async()
 upgrade(1, leg enhancements, 30)
 build(20, probe, 80)
+build(20, SCV, 30)
 
 if random(128):
     wait_force(11, zealot)
+    wait_force(11, Marine)
     attack_add(11, zealot)
+    attack_add(11, Marine)
     attack_async()

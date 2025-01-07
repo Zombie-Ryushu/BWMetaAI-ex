@@ -32,12 +32,25 @@ upgrade(1, Protoss Armor, 30)
 wait(500)
 build_finish(1, Templar Archives)
 tech(Psionic Storm, 30)
-
+upgrade(1, Infantry Weapons, 30)
+upgrade(1, Infantry Armor, 30)
+upgrade(1, Vehicle Weapons, 30)
+upgrade(1, Vehicle Plating, 30)
+tech(Stim Packs, 30)
+tech(Tank Siege Mode, 30)
+tech(Spider Mines, 30)
+tech(Cloaking Field, 80)
 wait(2500)
 
 upgrade(2, Protoss Ground Weapons, 30)
 upgrade(2, Protoss Armor, 30)
 upgrade(1, Khaydarin Amulet, 30)
+
+if owned(Science Facility):
+    upgrade(2, Infantry Weapons, 30)
+    upgrade(2, Infantry Armor, 30)
+    upgrade(2, Vehicle Weapons, 30)
+    upgrade(2, Vehicle Plating, 30)
 
 build_finish(1, Stargate)
 

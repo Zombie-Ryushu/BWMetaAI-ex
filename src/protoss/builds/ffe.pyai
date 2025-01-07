@@ -1,32 +1,85 @@
 use_build_vs(Zerg)
 
 build_start(8, Probe)
+build_start(8, SCV, 30)
 expand(1, fast_expansion)
 build(14, Probe, 80)
+build(14, SCV, 30)
 train(1, Zealot)
+train(1, Marine)
 defense_ground(Zealot)
+defense_ground(Marine)
 build_start(1, Pylon)
+build_start(1, Supply Depot, 30)
 build_start(1, Assimilator)
 build_start(1, Cybernetics Core)
+build_start(1, Factory, 30)
+
+build(1, Gateway, 80)
 train(3, zealot)
+build(1, Barracks, 80)
+train(3, Marine)
+
+build(1, Forge, 80)
 upgrade(1, ground weapons, 80)
+build(1, Engineering Bay, 80)
+upgrade(1, Infantry Weapons, 30)
 
 if random(128):
     build_start(1, Gateway)
-    build_start(1, citadel of adun)
+    build_start(1, Barracks, 30)
+    build_start(1, citadel of adun, 80)
     build_start(2, Gateway)
+    build_start(2, Barracks, 30)
     build_start(3, Gateway)
+    build_start(3, Barracks, 30)
+    
+    build(1, Gateway, 30)
     train(4, zealot)
+    build(1, Barracks, 30)
+    train(4, Marine)
+    
     build_start(2, pylon)
+    build_start(2, Supply Depot, 30)
+    
+    build(2, Gateway, 30)
     train(5, zealot)
+    build(2, Barracks, 30)
+    train(5, Marine)
+    
+    build(1, Engineering Bay, 80)
+    build(1, Academy, 80)
+    build(1, citadel of adun, 80)
     upgrade(1, Leg Enhancements, 30)
+    build(1, Academy, 80)
+    tech(Stim Packs, 30)
+    
+    build(3, Gateway, 30)
     train(6, zealot)
+    build(3, Barracks, 30)
+    train(6, Marine)
+    
     build_start(3, pylon)
+    build_start(3, Supply Depot, 30)
+    
     train(8, zealot)
+    train(8, Marine)
+    
     build_start(4, pylon)
+    build_start(4, Supply Depot, 30)
+    
     train(11, zealot)
+    train(11, Marine)
+    
     build_start(5, pylon)
+    build_start(5, Supply Depot, 30)
+    
     train(13, zealot)
+    train(13, Marine)
+    
     wait_force(13, zealot)
+    wait_force(13, Marine)
     attack_add(13, zealot)
+    attack_add(13, Marine)
     attack_simple()
+    attack_clear()

@@ -1,23 +1,56 @@
 use_build_vs(Protoss, Terran)
 build_weight(.25)
+farms_timing()
 
 defenseclear()
 8 Protoss Pylon
+8 Supply Depot
 10 Protoss Gateway
+10 Barracks
 12 Protoss Assimilator
 13 Protoss Cybernetics Core
-train(1, Protoss Zealot)
+13 Factory
+
+build(1, Protoss Gateway, 80)
+build(1, Barracks, 80)
+wait_force(1, Protoss Zealot)
+wait_force(1, Marine)
+
 build_start(15, Protoss Probe, 80)
+build_start(15, SCV, 30)
 build_start(2, Protoss Pylon, 80)
+build_start(2, Supply Depot, 30)
 build_start(17, Protoss Probe, 80)
-train(1, Protoss Dragoon)
+build_start(17, SCV, 30)
+
+build(1, Protoss Cybernetics Core, 80)
+build(1, Terran Engineering Bay, 80)
+build(1, Terran Academy, 80)
+build(1, Terran Factory, 80)
+player_need(1, Machine Shop)
+wait_force(1, Protoss Dragoon)
+wait_force(1, Goliath)
+
 build_start(1, Protoss Citadel of Adun)
 build_start(20, Protoss Probe, 80)
+build_start(20, SCV, 30)
 build_start(1, Protoss Templar Archives)
 build_start(2, Protoss Gateway)
+build_start(2, Barracks, 30)
 build_start(3, Protoss Pylon)
-wait_build(1, Protoss Templar Archives)
-attack_train(2, Dark Templar)
+build_start(3, Supply Depot, 30)
+
+build(1, Protoss Templar Archives, 80)
+build(1, Science Facility, 80)
+player_need(1, Academy)  # Ghost requires Academy
+player_need(1, Covert Ops)  # Ghost requires Covert Ops
 wait_force(2, Dark Templar)
-attack_simple()
+wait_force(2, Ghost)
+
+attack_clear()
+attack_add(2, Dark Templar)
+attack_add(2, Ghost)
+attack_async()
+attack_clear()
+
 expand(1, expansion)
