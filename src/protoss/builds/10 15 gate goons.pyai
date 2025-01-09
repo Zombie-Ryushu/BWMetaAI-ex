@@ -1,4 +1,5 @@
 use_build_vs(Terran)
+farms_timing()
 
 8 Pylon
 8 Supply Depot
@@ -10,54 +11,58 @@ use_build_vs(Terran)
 15 Gateway
 15 Barracks
 
-build(1, Core, 80)
-build(1, Engineering Bay, 80)
-build(1, Academy, 80)
-build(1, Factory, 80)
-build(1, Armory, 80)
-player_need(1, Machine Shop)  # Required for Goliath
+player_need(1, Core)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
+player_need(1, Armory)
+player_need(1, Machine Shop)
+
+wait_build(1, Core)
 upgrade(1, Singularity Charge, 80)
 
+wait_build(1, Factory)
+wait_build(1, Armory)
 wait_force(1, Dragoon)
-wait_force(1, Goliath)
+wait_force(1, Goliath)  # Both keep 1 since it's minimum
 
 build_start(2, Pylon)
 build_start(2, Supply Depot, 30)
 
-wait_force(3, Dragoon)
-wait_force(3, Goliath)
+wait_force(2, Dragoon)  # Halved (3 -> 2)
+wait_force(2, Goliath)  # Halved (3 -> 2)
 
-build_start(16, Probe)
-build_start(16, SCV, 30)
+build_start(8, Probe, 30)   # Halved (16 -> 8)
+build_start(8, SCV, 30) # Halved (16 -> 8)
 build_start(3, Pylon)
 build_start(3, Supply Depot, 30)
-build_start(17, Probe)
-build_start(17, SCV, 30)
+build_start(9, Probe, 30)   # Halved (17 -> 9)
+build_start(9, SCV, 30) # Halved (17 -> 9)
 
-wait_force(5, Dragoon)
-wait_force(5, Goliath)
+wait_force(3, Dragoon)  # Halved (5 -> 3)
+wait_force(3, Goliath)  # Halved (5 -> 3)
 
-build_start(18, Probe)
-build_start(18, SCV, 30)
-build_start(19, Probe)
-build_start(19, SCV, 30)
-build_start(20, Probe)
-build_start(20, SCV, 30)
+build_start(9, Probe, 30)   # Halved (18 -> 9)
+build_start(9, SCV, 30) # Halved (18 -> 9)
+build_start(10, Probe, 30)  # Halved (19 -> 10)
+build_start(10, SCV, 30)# Halved (19 -> 10)
+build_start(10, Probe, 30)  # Halved (20 -> 10)
+build_start(10, SCV, 30)# Halved (20 -> 10)
 
 attack_clear()
-attack_add(5, Dragoon)
-attack_add(5, Goliath)
+attack_add(3, Dragoon)  # Halved (5 -> 3)
+attack_add(3, Goliath)  # Halved (5 -> 3)
 attack_async()
 attack_clear()
 
 if random(128):
     build_start(4, Pylon)
     build_start(4, Supply Depot, 30)
-    wait_force(8, Dragoon)
-    wait_force(8, Goliath)
+    wait_force(4, Dragoon)  # Halved (8 -> 4)
+    wait_force(4, Goliath)  # Halved (8 -> 4)
     attack_clear()
-    attack_add(8, Dragoon)
-    attack_add(8, Goliath)
+    attack_add(4, Dragoon)  # Halved (8 -> 4)
+    attack_add(4, Goliath)  # Halved (8 -> 4)
     attack_async()
     attack_clear()
 

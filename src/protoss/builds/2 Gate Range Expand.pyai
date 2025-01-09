@@ -1,4 +1,7 @@
-use_build_vs(Terran)
+use_build_vs(Protoss, Terran)
+build_weight(.25)
+farms_timing()
+
 defenseclear()
 8 Protoss Pylon
 8 Supply Depot
@@ -7,42 +10,53 @@ defenseclear()
 12 Protoss Assimilator
 13 Protoss Cybernetics Core
 13 Factory
-15 Protoss Pylon
-15 Supply Depot
 
-build_start(18, Protoss Probe, 80)
-build_start(18, SCV, 30)
+build(1, Protoss Gateway, 80)
+build(1, Barracks, 80)
+wait_force(1, Protoss Zealot)
+wait_force(1, Marine)  # Keep 1 since it's minimum
 
-build(1, Protoss Cybernetics Core, 80)
-upgrade(1, Singularity Charge, 150)
-build(1, Terran Engineering Bay, 80)
+build_start(15, Protoss Probe, 80)
+build_start(8, SCV, 30)  # Halved
+build_start(2, Protoss Pylon, 80)
+build_start(2, Supply Depot, 30)
+build_start(17, Protoss Probe, 80)
+build_start(9, SCV, 30)  # Halved
 
+# Consolidate tech structure requests
+
+player_need(1, Protoss Cybernetics Core)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
+player_need(1, Machine Shop)
+player_need(1, Science Facility)  # Required for Ghost
+player_need(1, Armory)
+player_need(1, Robotics Support Bay)
+
+wait_force(1, Protoss Dragoon)
+wait_force(1, Goliath)  # Keep 1 since it's minimum
+
+build_start(1, Protoss Citadel of Adun)
+build_start(20, Protoss Probe, 80)
+build_start(10, SCV, 30)  # Halved
+build_start(1, Protoss Templar Archives)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
-build_start(20, Protoss Probe, 80)
-build_start(20, SCV, 30)
-expand(1, expansion)
-
-build(1, Protoss Cybernetics Core, 80)
-build(1, Terran Engineering Bay, 80)
-build(1, Terran Academy, 80)
-build(1, Terran Factory, 80)
-build(1, Terran Armory, 80)
-wait_force(2, Protoss Dragoon)
-wait_force(2, Goliath)
-defense_ground(Protoss Dragoon)
-defense_ground(Goliath)
-
-build_start(3, Protoss Pylon, 80)
+build_start(3, Protoss Pylon)
 build_start(3, Supply Depot, 30)
 
-wait_force(4, Protoss Dragoon)
-wait_force(4, Goliath)
+wait_build(1, Protoss Templar Archives)
+wait_build(1, Science Facility)  # Wait for Ghost prerequisite
+wait_build(1, Academy)  # Wait for Ghost prerequisite
 
-build_start(20, Protoss Probe, 80)
-build_start(20, SCV, 30)
+wait_force(2, Dark Templar)
+wait_force(1, Ghost)  # Halved
 
-attack_add(4, Protoss Dragoon)
-attack_add(4, Goliath)
-attack_simple()
 attack_clear()
+attack_add(2, Dark Templar)
+attack_add(1, Ghost)  # Halved
+attack_async()
+attack_clear()
+
+expand(1, expansion)

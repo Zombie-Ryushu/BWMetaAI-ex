@@ -1,4 +1,5 @@
 use_build_vs(Terran)
+farms_timing()
 
 # This starts very similar to a 2 gate range expand build
 8 Protoss Pylon
@@ -12,7 +13,7 @@ use_build_vs(Terran)
 15 Supply Depot
 
 build_start(18, Protoss Probe, 80)
-build_start(18, SCV, 30)
+build_start(9, SCV, 30)  # Halved
 build(1, Engineering Bay, 80)
 build(1, Academy, 80)
 build(1, Factory, 80)
@@ -23,31 +24,29 @@ upgrade(1, Singularity Charge, 150)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
 build_start(20, Protoss Probe, 80)
-build_start(20, SCV, 30)
+build_start(10, SCV, 30)  # Halved
 
 expand(1, expansion_fast_gas)
 
 build(1, Factory, 80)
 player_need(1, Machine Shop)
 wait_force(2, Protoss Dragoon)
-wait_force(2, Goliath)
-defense_ground(Protoss Dragoon)
-defense_ground(Goliath)
+wait_force(1, Goliath)  # Halved
 
 build_start(3, Protoss Pylon, 80)
 build_start(3, Supply Depot, 30)
 
 wait_force(4, Protoss Dragoon)
-wait_force(4, Goliath)
+wait_force(2, Goliath)  # Halved
 
 build_start(20, Protoss Probe, 80)
-build_start(20, SCV, 30)
+build_start(10, SCV, 30)  # Halved
 
 build_start(1, Robotics Facility)
 build_start(1, Starport, 30)
 
 wait_force(6, Dragoon)
-wait_force(6, Goliath)
+wait_force(3, Goliath)  # Halved
 
 build_start(1, Observatory)
 build_start(1, Control Tower, 30)
@@ -56,26 +55,33 @@ build_start(1, Starport, 30)
 upgrade(1, Air Weapons, 30)
 
 wait_force(8, Dragoon)
-wait_force(8, Goliath)
+wait_force(4, Goliath)  # Halved
 
 build_start(2, Stargate)
 build_start(2, Starport, 30)
+build_start(2, Control Tower, 30)
 build_start(1, Fleet Beacon)
 build_start(1, Science Facility, 30)
 
+# Wait for critical tech structures
+wait_build(1, Science Facility)
+player_need(1, Physics Lab)
+wait_build(1, Physics Lab)
+tech(Yamato Gun, 30)
+
 wait_force(10, Dragoon)
-wait_force(10, Goliath)
+wait_force(5, Goliath)  # Halved
 
 build(1, Fleet Beacon, 30)
 wait_force(2, Carrier)
-wait_force(2, Wraith)
+wait_force(1, Battlecruiser)
 build(1, Observatory, 30)
 wait_force(1, Observer)
 build(1, Science Facility, 30)
 wait_force(1, Science Vessel)
 
 wait_force(12, Dragoon)
-wait_force(12, Goliath)
+wait_force(6, Goliath)  # Halved
 
 upgrade(1, Carrier Capacity, 80)
 build_start(4, Gateway)
@@ -83,21 +89,21 @@ build_start(4, Barracks, 30)
 build_start(3, Supply Depot, 30)
 
 wait_force(4, Carrier)
-wait_force(4, Wraith)
+wait_force(2, Battlecruiser)
 wait_force(20, Dragoon)
-wait_force(20, Goliath)
+wait_force(10, Goliath)  # Halved
 
 attack_clear()
-attack_add(6, Carrier)
-attack_add(6, Wraith)
-attack_add(28, Dragoon)
-attack_add(28, Goliath)
+attack_add(3, Carrier)
+attack_add(3, Battlecruiser)
+attack_add(14, Dragoon)
+attack_add(14, Goliath)  # Halved
 attack_async()
 attack_clear()
 
 if random(64):
     attack_clear()
     attack_add(4, Protoss Dragoon)
-    attack_add(4, Goliath)
+    attack_add(2, Goliath)  # Halved
     attack_async()
     attack_clear()

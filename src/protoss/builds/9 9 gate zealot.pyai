@@ -1,70 +1,76 @@
-use_build_vs(Zerg, Protoss)
-build_weight(.25)
+use_build_vs(Terran, Protoss)
+farms_timing()
 
 8 Pylon
 8 Supply Depot
-9 Gateway
-9 Barracks
-9 Gateway
-9 Barracks
-build_start(11, probe)
-build_start(11, SCV, 30)
-build(1, Gateway, 80)
-build(1, Barracks, 80)
-wait_force(1, zealot)
-wait_force(1, Marine)
-build_start(2, pylon)
-build_start(2, Supply Depot, 30)
-build(1, Engineering Bay, 80)
-build(1, Academy, 80)
-build(1, Factory, 80)
-build(1, Armory, 80)
+10 Gateway
+10 Barracks
+12 Gas
+13 Zealot
+13 Marine
+defenseuse_gg(1, Zealot)
+defenseuse_gg(1, Marine)
+16 Pylon
+16 Supply Depot
+17 Core
+17 Factory
+18 Zealot
+18 Marine
+22 Dragoon
+22 Siege Tank
+23 Pylon
+23 Supply Depot
+24 Robo
+24 Starport
+26 Dragoon
+26 Siege Tank
+28 Gateway
+28 Barracks
+28 Pylon
+28 Supply Depot
+28 Robotics Support Bay
+28 Control Tower
+28 Dragoon
+28 Siege Tank
+30 Shuttle
+30 Dropship
+32 Dragoon
+32 Siege Tank
+34 Pylon
+34 Supply Depot
+34 Reaver
 
-wait_force(3, Zealot)
-wait_force(3, Marine)
+# Consolidate all tech structure requests into one multirun_loop
+
+player_need(1, Cybernetics Core)
+player_need(1, Machine Shop)
+player_need(1, Control Tower)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
+player_need(1, Armory)
+player_need(1, Robotics Support Bay)
+
+build_start(2, Supply Depot, 30)
+
+# Wait for critical prerequisites in sequence
+wait_build(1, Cybernetics Core)
+wait_build(1, Factory)
+wait_build(1, Robotics Support Bay)
+
+# Unit production with prerequisites confirmed
+wait_force(1, Reaver)
+wait_force(6, Dragoon)
+wait_force(6, Siege Tank)
+
+# Single attack sequence
 attack_clear()
-attack_add(3, Zealot)
-attack_add(3, Marine)
+attack_add(2, Zealot)
+attack_add(2, Marine)
+attack_add(6, Dragoon)
+attack_add(6, Siege Tank)
+attack_add(1, Reaver)
+attack_add(1, Shuttle)
+attack_add(1, Dropship)
 attack_async()
 attack_clear()
-
-build_start(1, Assimilator)
-build_start(12, probe)
-build_start(12, SCV, 30)
-build_start(1, core)
-build_start(1, Factory, 30)
-build_start(13, probe)
-build_start(13, SCV, 30)
-
-if random(128):
-    wait_force(4, Zealot)
-    wait_force(4, Marine)
-    attack_clear()
-    attack_add(4, Zealot)
-    attack_add(4, Marine)
-    attack_async()
-    attack_clear()
-
-wait_force(2, zealot)
-wait_force(2, Marine)
-build_start(15, probe)
-build_start(15, SCV, 30)
-build_start(3, Pylon)
-build_start(3, Supply Depot, 30)
-build_start(1, Cybernetics Core)
-build_start(18, Probe)
-build_start(18, SCV, 30)
-build_start(4, Pylon)
-build_start(4, Supply Depot, 30)
-build_start(20, Probe)
-build_start(20, SCV, 30)
-
-build(1, Cybernetics Core, 80)
-build(1, Factory, 80)
-build(1, Engineering Bay, 80)
-build(1, Academy, 80)
-build(1, Armory, 80)
-player_need(1, Machine Shop)  # Required for Goliath
-wait_force(1, Dragoon)
-wait_force(1, Goliath)
-expand(1, expansion)

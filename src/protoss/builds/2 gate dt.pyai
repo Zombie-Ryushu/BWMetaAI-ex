@@ -14,42 +14,48 @@ defenseclear()
 build(1, Protoss Gateway, 80)
 build(1, Barracks, 80)
 wait_force(1, Protoss Zealot)
-wait_force(1, Marine)
+wait_force(1, Marine)  # Keep 1 since it's minimum
 
 build_start(15, Protoss Probe, 80)
-build_start(15, SCV, 30)
+build_start(8, SCV, 30)  # Halved
 build_start(2, Protoss Pylon, 80)
 build_start(2, Supply Depot, 30)
 build_start(17, Protoss Probe, 80)
-build_start(17, SCV, 30)
+build_start(9, SCV, 30)  # Halved
 
-build(1, Protoss Cybernetics Core, 80)
-build(1, Terran Engineering Bay, 80)
-build(1, Terran Academy, 80)
-build(1, Terran Factory, 80)
+# Consolidate tech structure requests
+
+player_need(1, Protoss Cybernetics Core)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
 player_need(1, Machine Shop)
+player_need(1, Science Facility)  # Required for Ghost
+player_need(1, Armory)
+player_need(1, Robotics Support Bay)
+
 wait_force(1, Protoss Dragoon)
-wait_force(1, Goliath)
+wait_force(1, Goliath)  # Keep 1 since it's minimum
 
 build_start(1, Protoss Citadel of Adun)
 build_start(20, Protoss Probe, 80)
-build_start(20, SCV, 30)
+build_start(10, SCV, 30)  # Halved
 build_start(1, Protoss Templar Archives)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
 build_start(3, Protoss Pylon)
 build_start(3, Supply Depot, 30)
 
-build(1, Protoss Templar Archives, 80)
-build(1, Science Facility, 80)
-player_need(1, Academy)  # Ghost requires Academy
-player_need(1, Covert Ops)  # Ghost requires Covert Ops
+wait_build(1, Protoss Templar Archives)
+wait_build(1, Science Facility)  # Wait for Ghost prerequisite
+wait_build(1, Academy)  # Wait for Ghost prerequisite
+
 wait_force(2, Dark Templar)
-wait_force(2, Ghost)
+wait_force(1, Ghost)  # Halved
 
 attack_clear()
 attack_add(2, Dark Templar)
-attack_add(2, Ghost)
+attack_add(1, Ghost)  # Halved
 attack_async()
 attack_clear()
 

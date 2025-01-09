@@ -4,6 +4,6 @@ if owned(Fleet Beacon):
     if owned(Arbiter Tribunal):
         attack_train(1, Arbiter)
         attack_train(1, Wraith)
-    attack_multiple(2, 6 Carrier, 6 Zealot)
-    attack_multiple(2, 6 Wraith, 6 Marine)
+    attack_multiple(2, 3 Carrier, 3 Zealot)
+    attack_multiple(2, 3 Battlecruiser, 3 Marine)
     attack_simple()
