@@ -4,9 +4,14 @@ if owned(Cybernetics Core):
     attack_multiple(2, 7 Zealot, 2 Dragoon)
 
 if owned(Stargate):
+    wait_build(1, Starport)
+    wait_build(1, Control Tower)
+    wait_build(1, Armory)  # Required for Valkyrie
     attack_train(1, Corsair)
+    attack_train(1, Valkyrie)
     if enemyowns(Spire):
-      attack_multiple(3, 2 Corsair)
+        attack_multiple(3, 2 Corsair)
+        attack_multiple(3, 1 Valkyrie)  # Half the air support numbers
 
 if owned(Templar Archives):
     if random(128):

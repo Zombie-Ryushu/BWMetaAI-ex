@@ -2,6 +2,7 @@ use_build_vs(Protoss, Terran)
 build_weight(.25)
 farms_timing()
 
+message(Starting 2 Gate Range Expand Hybrid Build)
 defenseclear()
 8 Protoss Pylon
 8 Supply Depot
@@ -11,52 +12,71 @@ defenseclear()
 13 Protoss Cybernetics Core
 13 Factory
 
+message(Building Initial Production)
 build(1, Protoss Gateway, 80)
 build(1, Barracks, 80)
-wait_force(1, Protoss Zealot)
-wait_force(1, Marine)  # Keep 1 since it's minimum
 
+message(Training Initial Units)
+wait_force(1, Protoss Zealot)
+wait_force(1, Marine)
+
+message(Building Workers and Supply)
 build_start(15, Protoss Probe, 80)
-build_start(8, SCV, 30)  # Halved
+build_start(8, SCV, 30)
 build_start(2, Protoss Pylon, 80)
 build_start(2, Supply Depot, 30)
 build_start(17, Protoss Probe, 80)
-build_start(9, SCV, 30)  # Halved
+build_start(9, SCV, 30)
 
-# Consolidate tech structure requests
-
+message(Building Core Tech Structures)
 player_need(1, Protoss Cybernetics Core)
 player_need(1, Engineering Bay)
 player_need(1, Academy)
 player_need(1, Factory)
 player_need(1, Machine Shop)
-player_need(1, Science Facility)  # Required for Ghost
+player_need(1, Science Facility)
 player_need(1, Armory)
 player_need(1, Robotics Support Bay)
+player_need(1, Covert Ops)
 
-wait_force(1, Protoss Dragoon)
-wait_force(1, Goliath)  # Keep 1 since it's minimum
+message(Training Mid-Game Units)
+wait_force(10, Protoss Dragoon)
+wait_force(10, Goliath)
 
+message(Building Advanced Structures)
 build_start(1, Protoss Citadel of Adun)
 build_start(20, Protoss Probe, 80)
-build_start(10, SCV, 30)  # Halved
+build_start(10, SCV, 30)
 build_start(1, Protoss Templar Archives)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
 build_start(3, Protoss Pylon)
 build_start(3, Supply Depot, 30)
 
+message(Waiting for Advanced Tech)
 wait_build(1, Protoss Templar Archives)
-wait_build(1, Science Facility)  # Wait for Ghost prerequisite
-wait_build(1, Academy)  # Wait for Ghost prerequisite
+wait_build(1, Science Facility)
+wait_build(1, Academy)
+wait_build(1, Covert Ops)
+player_need(2, Protoss Citadel of Adun)
+wait_build(2, Protoss Citadel of Adun)
+player_need(2, Protoss Templar Archives)
+wait_build(2, Protoss Templar Archives)
 
+message(Training Special Forces)
 wait_force(2, Dark Templar)
-wait_force(1, Ghost)  # Halved
+wait_force(2, Ghost)
 
-attack_clear()
+message(Preparing Attack)
 attack_add(2, Dark Templar)
-attack_add(1, Ghost)  # Halved
-attack_async()
-attack_clear()
+attack_add(2, Ghost)
 
+message(Researching Lockdown)
+tech(Lockdown, 30)
+tech(Psionic Storm, 30)
+
+message(Attacking)
+attack_async()
+
+message(Expanding)
 expand(1, expansion)

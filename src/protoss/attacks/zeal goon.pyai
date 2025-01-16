@@ -1,11 +1,16 @@
 use_attack_vs(Terran)
 
+attack_clear()
+
 if owned(stargate):
     if owned(arbiter tribunal):
+        wait_build(1, Science Facility)  # Science Vessel prerequisite
         attack_train(1, Protoss Arbiter)
         attack_train(1, Science Vessel)
 
 if owned(Templar Archives):
+    wait_build(1, Academy)       # Ghost prerequisite
+    wait_build(1, Science Facility)  # Ghost prerequisite
     attack_train(2, Protoss High Templar)
     attack_train(2, Ghost)
     if random(128):
@@ -13,7 +18,10 @@ if owned(Templar Archives):
         attack_train(1, Ghost)
 
 if owned(Cybernetics Core):
-    attack_multiple(4, 6 Zealot, 6 Dragoon)
-    attack_multiple(4, 6 Marine, 6 Goliath)
+    wait_build(1, Factory)      # Goliath prerequisite
+    wait_build(1, Armory)       # Goliath prerequisite
+    wait_build(1, Machine Shop) # For better Terran mech support
+    attack_multiple(4, 3 Zealot, 3 Dragoon)    # Halved numbers
+    attack_multiple(4, 3 Marine, 3 Goliath)    # Halved numbers
 
 attack_simple()

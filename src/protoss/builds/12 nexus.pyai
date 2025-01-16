@@ -1,77 +1,161 @@
 use_build_vs(Terran, Protoss)
 farms_timing()
+message(Starting Nexus First Build)
 
-build_start(4, Probe, 150)  # Halved (8 -> 4)
-build_start(4, SCV, 30)     # Halved (8 -> 4)
+message(Training Initial Workers)
+build_start(4, Probe, 150)
+build_start(4, SCV, 30)
 build_start(1, Pylon)
 build_start(1, Supply Depot, 30)
-build_start(6, Probe, 150)  # Halved (12 -> 6)
-build_start(6, SCV, 30)     # Halved (12 -> 6)
+build_start(6, Probe, 150)
+build_start(6, SCV, 30)
 
+message(Fast Expanding)
 wait(300)
 expand(1, expansion)
 
-build_start(6, Probe, 30)       # Halved (12 -> 6)
-build_start(6, SCV, 30)     # Halved (12 -> 6)
-build_start(1, Gateway, 30)
-build_start(1, Barracks, 30)
-build_start(7, Probe, 30)       # Halved (13 -> 7)
-build_start(7, SCV, 30)     # Halved (13 -> 7)
+message(Building Economy)
+build_start(6, Probe, 30)
+build_start(6, SCV, 30)
+build_start(7, Probe, 30)
+build_start(7, SCV, 30)
 build_start(1, Assimilator)
 build_start(2, Pylon)
 build_start(2, Supply Depot, 30)
-build_start(7, Probe, 30)       # Halved (14 -> 7)
-build_start(7, SCV, 30)     # Halved (14 -> 7)
+build_start(7, Probe, 30)
+build_start(7, SCV, 30)
 
-build(1, Gateway, 80)
-build_start(1, Core)
-build_start(1, Factory, 30)
-build(1, Barracks, 80)
-wait_force(1, Zealot)       # Keep 1 since it's minimum
-wait_force(1, Marine)       # Keep 1 since it's minimum
-player_need(1, Core)
-player_need(1, Engineering Bay)
-player_need(1, Academy)
-player_need(1, Factory)
-player_need(1, Armory)
-player_need(1, Machine Shop)
-build_start(8, Probe, 30)       # Halved (15 -> 8)
-build_start(8, SCV, 30)     # Halved (15 -> 8)
-build_start(2, Gateway)
-build_start(2, Barracks, 30)
-build_start(9, Probe, 30)       # Halved (17 -> 9)
-build_start(9, SCV, 30)     # Halved (17 -> 9)
-
+message(Building Initial Production)
+player_need(1, Gateway)
+wait_build(1, Gateway)
 
 player_need(1, Core)
-player_need(1, Engineering Bay)
-player_need(1, Academy)
-player_need(1, Factory)
-player_need(1, Machine Shop)
-player_need(1, Armory)
-
 wait_build(1, Core)
+
+player_need(1, Barracks)
+wait_build(1, Barracks)
+
+message(Training First Units)
+wait_force(1, Zealot)
+wait_force(1, Marine)
+
+message(Building Core Tech)
+player_need(1, Engineering Bay)
+wait_build(1, Engineering Bay)
+
+player_need(1, Academy)
+wait_build(1, Academy)
+
+player_need(1, Factory)
 wait_build(1, Factory)
+
+player_need(1, Armory)
 wait_build(1, Armory)
-wait_force(1, Dragoon)      # Keep 1 since it's minimum
-wait_force(1, Goliath)      # Keep 1 since it's minimum
 
-build_start(9, Probe, 30)       # Halved (18 -> 9)
-build_start(9, SCV, 30)     # Halved (18 -> 9)
+player_need(1, Machine Shop)
+wait_build(1, Machine Shop)
 
-wait_force(1, Dragoon)      # Halved (2 -> 1)
-wait_force(1, Goliath)      # Halved (2 -> 1)
+message(Building Advanced Tech)
+player_need(1, Protoss Citadel of Adun)
+wait_build(1, Protoss Citadel of Adun)
 
-build_start(10, Probe, 30)      # Halved (19 -> 10)
-build_start(10, SCV, 30)    # Halved (19 -> 10)
+player_need(1, Stargate)
+wait_build(1, Stargate)
 
-wait_force(2, Dragoon)      # Halved (3 -> 2)
-wait_force(2, Goliath)      # Halved (3 -> 2)
+player_need(1, Starport)
+wait_build(1, Starport)
 
+player_need(1, Control Tower)
+wait_build(1, Control Tower)
+
+player_need(1, Fleet Beacon)
+wait_build(1, Fleet Beacon)
+
+player_need(1, Science Facility)
+wait_build(1, Science Facility)
+
+player_need(1, Physics Lab)
+wait_build(1, Physics Lab)
+
+player_need(2, Science Facility)
+wait_build(2, Science Facility)
+
+player_need(1, Covert Ops)
+wait_build(1, Covert Ops)
+
+player_need(1, Robotics Support Bay)
+wait_build(1, Robotics Support Bay)
+
+player_need(1, Protoss Citadel of Adun)
+wait_build(1, Protoss Citadel of Adun)
+
+player_need(1, Protoss Templar Archives)
+wait_build(1, Protoss Templar Archives)
+
+message(Training More Workers)
+build_start(8, Probe, 30)
+build_start(8, SCV, 30)
+
+player_need(2, Gateway)
+wait_build(2, Gateway)
+
+player_need(2, Barracks)
+wait_build(2, Barracks)
+
+build_start(9, Probe, 30)
+build_start(9, SCV, 30)
+
+message(Building Support Structures)
+player_need(2, Core)
+wait_build(1, Core)
+
+player_need(2, Engineering Bay)
+player_need(2, Academy)
+
+player_need(2, Factory)
+wait_build(2, Factory)
+
+player_need(2, Machine Shop)
+wait_build(2, Machine Shop)
+
+player_need(2, Armory)
+wait_build(1, Armory)
+
+message(Waiting for Tech Structures)
+wait_build(3, Factory)
+
+message(Training Core Army)
+wait_force(2, Dragoon)
+wait_force(2, Goliath)
+
+message(Building Late Game Economy)
+build_start(9, Probe, 30)
+build_start(9, SCV, 30)
+
+message(Training Additional Forces)
+wait_force(2, Dragoon)
+wait_force(2, Goliath)
+
+message(Final Worker Wave)
+build_start(10, Probe, 30)
+build_start(10, SCV, 30)
+
+message(Training Attack Force)
+wait_force(2, Dragoon)
+wait_force(2, Goliath)
+wait_force(2, Wraith)
+
+message(Building Final Supply)
 build_start(3, Pylon)
 build_start(3, Supply Depot, 30)
-build_start(10, Probe, 30)      # Halved (20 -> 10)
-build_start(10, SCV, 30)    # Halved (20 -> 10)
+build_start(10, Probe, 30)
+build_start(10, SCV, 30)
 
-wait_force(2, Dragoon)      # Halved (4 -> 2)
-wait_force(2, Goliath)      # Halved (4 -> 2)
+message(Preparing Attack Force)
+attack_add(2, Dragoon)
+attack_add(2, Goliath)
+attack_add(2, Wraith)
+
+message(Attacking)
+attack_async()
+attack_clear()

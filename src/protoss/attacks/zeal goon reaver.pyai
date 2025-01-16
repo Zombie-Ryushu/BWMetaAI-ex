@@ -5,14 +5,22 @@ if owned(stargate):
         attack_train(1, Arbiter)
 
 if owned(Templar Archives):
+    wait_build(1, Academy)
+    wait_build(1, Science Facility)
     attack_train(2, High Templar)
+    attack_train(2, Ghost)
     if random(128):
         attack_train(1, Dark Templar)
 
 if owned(Cybernetics Core):
     attack_multiple(3, 3 Zealot, 6 Dragoon)
+    attack_multiple(3, 3 Marine, 6 Goliath)
 
 if owned(Robotics Support Bay):
+    wait_build(1, Factory)
+    wait_build(1, Machine Shop)  # Required for Siege Tank
     attack_train(1, Reaver)
-
+    attack_train(1, Siege Tank)  # Added Siege Tank support
+    attack_train(1, Shuttle)
+    
 attack_simple()

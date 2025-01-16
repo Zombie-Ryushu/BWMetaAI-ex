@@ -39,6 +39,7 @@ defenseuse_gg(1, Marine)
 34 Supply Depot
 34 Reaver
 
+message(Reaver and Shuttle Build)
 wait_build(1, Cybernetics Core)
 wait_build(1, Factory)
 wait_build(1, Machine Shop)  # Required for Siege Tank
@@ -49,8 +50,8 @@ wait_force(1, Reaver)  # Changed from train/wait_train to wait_force
 
 wait_force(6, Dragoon)
 wait_force(6, Siege Tank)
+tech(Irradiate, 30)
 
-attack_clear()
 attack_add(2, Zealot)
 attack_add(2, Marine)
 attack_add(6, Dragoon)

@@ -1,35 +1,117 @@
-use_build_vs(Zerg, Protoss)
-build_weight(.5)
+use_build_vs(Terran, Protoss)
+farms_timing()
+
 8 Pylon
 8 Supply Depot
 10 Gateway
 10 Barracks
-12 Gateway
-12 Barracks
-13 Zealot
-13 Marine
-defensebuild_gg(1, Zealot)
-defensebuild_gg(1, Marine)
-15 Pylon
-15 Supply Depot
-train(3, Zealot)
-train(3, Marine)
-build_start(1, Assimilator)
+11 Assimilator
+13 Core
+13 Factory
+15 Gateway
+15 Barracks
+message(Reaver and Siege Tank Rush Build)
+
+message(Building Core Structures)
+player_need(1, Core)
+wait_build(1, Core)
+upgrade(1, Singularity Charge, 80)
+
+message(Building Terran Tech Prerequisites)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
+wait_build(1, Factory)
+
+player_need(1, Armory)
+wait_build(1, Armory)
+
+player_need(1, Machine Shop)
+wait_build(1, Machine Shop)
+
+message(Training Early Defense Force)
+wait_force(2, Dragoon)
+wait_force(2, Goliath)
+
+build_start(2, Pylon)
+build_start(2, Supply Depot, 30)
+
+message(Training Workers)
+build_start(8, Probe, 30)
+build_start(8, SCV, 30)
 build_start(3, Pylon)
 build_start(3, Supply Depot, 30)
-train(5, Zealot)
-train(5, Marine)
-build_start(1, Cybernetics Core)
-build_start(1, Factory, 30)
-build_start(18, Probe)
-build_start(18, SCV, 30)
-attack_add(5, Zealot)
-attack_add(5, Marine)
-attack_async()
-build_start(4, Pylon)
-build_start(4, Supply Depot, 30)
-build_start(20, Probe)
-build_start(20, SCV, 30)
-train(1, Dragoon)
-train(1, Goliath)
+
+message(Building Robotics Tech)
+player_need(1, Robotics Facility)
+wait_build(1, Robotics Facility)
+player_need(1, Protoss Citadel of Adun)
+wait_build(1, Protoss Citadel of Adun)
+player_need(1, Protoss Templar Archives)
+wait_build(1, Protoss Templar Archives)
+
+message(Building Robotics Support Bay)
+player_need(1, Robotics Support Bay)
+wait_build(1, Robotics Support Bay)
+
+message(Building Additional Factory Production)
+player_need(2, Factory)
+wait_build(2, Factory)
+player_need(2, Machine Shop)
+wait_build(2, Machine Shop)
+
+player_need(3, Factory)
+wait_build(3, Factory)
+player_need(3, Machine Shop)
+wait_build(3, Machine Shop)
+
+message(Building Additional Robotics Production)
+player_need(2, Robotics Facility)
+wait_build(2, Robotics Facility)
+tech(Tank Siege Mode, 150)
+upgrade(1, Infantry Weapons, 30)
+upgrade(1, Infantry Armor, 30)
+upgrade(1, Vehicle Weapons, 30)
+upgrade(1, Vehicle Plating, 30)
+upgrade(1, Ship Weapons, 80)
+upgrade(1, Ship Plating, 80)
+
+player_need(3, Robotics Facility)
+wait_build(3, Robotics Facility)
+
+message(Expanding to Natural)
 expand(1, expansion)
+
+message(Training Initial Rush Force)
+wait_force(2, Reaver)
+wait_force(3, Siege Tank)
+wait_force(4, Dragoon)  # Anti-air support
+
+message(First Rush Attack)
+attack_add(2, Reaver)
+attack_add(3, Siege Tank)
+attack_add(4, Dragoon)
+attack_async()
+
+message(Training Second Wave)
+wait_force(3, Reaver)
+wait_force(4, Siege Tank)
+wait_force(6, Dragoon)
+
+message(Second Rush Attack)
+attack_add(3, Reaver)
+attack_add(4, Siege Tank)
+attack_add(6, Dragoon)
+attack_async()
+
+message(Training Final Wave)
+wait_force(4, Reaver)
+wait_force(6, Siege Tank)
+wait_force(8, Dragoon)
+
+message(Final Rush Attack)
+attack_clear()
+attack_add(4, Reaver)
+attack_add(6, Siege Tank)
+attack_add(8, Dragoon)
+attack_async()

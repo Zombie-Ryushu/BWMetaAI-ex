@@ -1,6 +1,7 @@
 use_build_vs(Terran)
 farms_timing()
 
+message(Starting 1 Gate Zealot Hybrid Build)
 8 Pylon
 8 Supply Depot
 10 Gateway
@@ -13,6 +14,7 @@ farms_timing()
 18 Core
 18 Factory
 
+message(Building Core Tech Structures)
 player_need(1, Core)
 player_need(1, Engineering Bay)
 player_need(1, Academy)
@@ -21,48 +23,63 @@ player_need(1, Armory)
 player_need(1, Machine Shop)
 
 if random(192):
-    build(1, Gateway, 80)
-    build(1, Barracks, 80)
+    message(Random Early Attack)
+    wait_build(1, Gateway)
+    wait_build(1, Barracks)
     attack_clear()
     attack_add(1, Zealot)
-    attack_add(1, Marine)  # Keep 1 since it's minimum
+    attack_add(1, Marine)
     attack_async()
     attack_clear()
-
-build(1, Gateway, 80)
-build(1, Barracks, 80)
+ 
+message(Training Initial Army)
+wait_build(1, Gateway)
+wait_build(1, Barracks)
 wait_force(3, Zealot)
-wait_force(2, Marine)  # Halved (3 -> 2)
+wait_force(2, Marine)
 
-build(1, Cybernetics Core, 80)
+message(Building Tech and Upgrades)
+wait_build(1, Cybernetics Core)
 upgrade(1, Singularity Charge, 150)
 build_start(3, Protoss Pylon, 80)
 build_start(3, Supply Depot, 30)
-build(1, Engineering Bay, 80)
-build(1, Academy, 80)
-build(1, Armory, 80)
-player_need(1, Machine Shop)
-build(1, Factory, 80)
-wait_force(1, Dragoon)
-wait_force(1, Goliath)  # Keep 1 since it's minimum
 
+message(Building Support Structures)
+wait_build(1, Engineering Bay)
+wait_build(1, Academy)
+wait_build(1, Factory)
+wait_build(1, Armory)
+wait_build(1, Machine Shop)
+
+message(Training Dragoons and Goliaths)
+wait_force(1, Dragoon)
+wait_force(1, Goliath)
+
+message(Building Economy)
 build_start(16, Protoss Probe, 80)
-build_start(8, SCV, 30)  # Halved
+build_start(8, SCV, 30)
 build_start(17, Protoss Probe, 80)
-build_start(9, SCV, 30)  # Halved
+build_start(9, SCV, 30)
+
+message(Expanding)
 expand(1, expansion)
 
+message(Training Additional Workers)
 build_start(19, Protoss Probe, 80)
-build_start(10, SCV, 30)  # Halved
+build_start(10, SCV, 30)
 
+message(Preparing Attack Force)
 attack_clear()
 attack_add(2, Zealot)
-attack_add(1, Marine)  # Halved
+attack_add(1, Marine)
 attack_add(1, Dragoon)
-attack_add(1, Goliath)  # Keep 1 since it's minimum
+attack_add(1, Goliath)
+
+message(Attacking)
 attack_async()
 attack_clear()
 
+message(Building Additional Production)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
 build_start(3, Protoss Gateway)

@@ -1,7 +1,7 @@
 use_build_vs(Terran)
 farms_timing()
 
-# This starts very similar to a 2 gate range expand build
+message(Starting Carrier-Battlecruiser Late Game Build)
 8 Protoss Pylon
 8 Supply Depot
 10 Protoss Gateway
@@ -12,98 +12,120 @@ farms_timing()
 15 Protoss Pylon
 15 Supply Depot
 
-build_start(18, Protoss Probe, 80)
-build_start(9, SCV, 30)  # Halved
-build(1, Engineering Bay, 80)
-build(1, Academy, 80)
-build(1, Factory, 80)
-build(1, Armory, 80)
+message(Training Initial Workers)
+build_start(9, Protoss Probe, 80)
+build_start(9, SCV, 30)
 
-build(1, Protoss Cybernetics Core, 80)
+message(Waiting for Core Structures)
+wait_build(1, Protoss Gateway)
+wait_build(1, Barracks)
+wait_build(1, Protoss Cybernetics Core)
+wait_build(1, Factory)
+
+message(Researching Range Upgrade)
 upgrade(1, Singularity Charge, 150)
+
+message(Building Mid-Game Structures)
+player_need(1, Engineering Bay)
+player_need(1, Academy)
+player_need(1, Factory)
+player_need(1, Machine Shop)
+player_need(1, Armory)
+
+message(Expanding Production)
 build_start(2, Protoss Gateway)
 build_start(2, Barracks, 30)
-build_start(20, Protoss Probe, 80)
-build_start(10, SCV, 30)  # Halved
+build_start(10, Protoss Probe, 80)
+build_start(10, SCV, 30)
 
+message(Fast Expanding)
 expand(1, expansion_fast_gas)
 
-build(1, Factory, 80)
-player_need(1, Machine Shop)
+message(Training Mid-Game Army)
 wait_force(2, Protoss Dragoon)
-wait_force(1, Goliath)  # Halved
+wait_force(1, Goliath)
 
+message(Building Supply)
 build_start(3, Protoss Pylon, 80)
 build_start(3, Supply Depot, 30)
 
-wait_force(4, Protoss Dragoon)
-wait_force(2, Goliath)  # Halved
+message(Building Air Tech - Stage 1)
+player_need(1, Stargate)
+player_need(1, Starport)
+player_need(1, Control Tower)
+wait_build(1, Stargate)
+wait_build(1, Starport)
+wait_build(1, Control Tower)
 
-build_start(20, Protoss Probe, 80)
-build_start(10, SCV, 30)  # Halved
+message(Building Air Production Capacity)
+player_need(2, Stargate)
+player_need(2, Starport)
+player_need(2, Control Tower)
+wait_build(2, Stargate)
+wait_build(2, Starport)
+wait_build(2, Control Tower)
 
-build_start(1, Robotics Facility)
-build_start(1, Starport, 30)
+message(Building Advanced Tech - Stage 2)
+message(Cybernetics Core path)
+player_need(1, Citadel of Adun)
+wait_build(1, Citadel of Adun)
 
-wait_force(6, Dragoon)
-wait_force(3, Goliath)  # Halved
+player_need(1, Templar Archives)
+wait_build(1, Templar Archives)
 
-build_start(1, Observatory)
-build_start(1, Control Tower, 30)
-build_start(1, Stargate)
-build_start(1, Starport, 30)
-upgrade(1, Air Weapons, 30)
+message(Robotics path)
+player_need(1, Observatory)
+wait_build(1, Observatory)
 
-wait_force(8, Dragoon)
-wait_force(4, Goliath)  # Halved
+message(Stargate path)
+player_need(1, Fleet Beacon)
+wait_build(1, Fleet Beacon)
 
-build_start(2, Stargate)
-build_start(2, Starport, 30)
-build_start(2, Control Tower, 30)
-build_start(1, Fleet Beacon)
-build_start(1, Science Facility, 30)
-
-# Wait for critical tech structures
+message(Terran advanced tech)
+player_need(1, Science Facility)
 wait_build(1, Science Facility)
+
+message(Final Protoss tech and Physics Lab)
+player_need(1, Arbiter Tribunal)
+wait_build(1, Arbiter Tribunal)
+message(Building Physics Lab)
 player_need(1, Physics Lab)
 wait_build(1, Physics Lab)
+
+message(Researching Air Upgrades)
 tech(Yamato Gun, 30)
 
-wait_force(10, Dragoon)
-wait_force(5, Goliath)  # Halved
-
-build(1, Fleet Beacon, 30)
-wait_force(2, Carrier)
-wait_force(1, Battlecruiser)
-build(1, Observatory, 30)
-wait_force(1, Observer)
-build(1, Science Facility, 30)
-wait_force(1, Science Vessel)
-
-wait_force(12, Dragoon)
-wait_force(6, Goliath)  # Halved
-
-upgrade(1, Carrier Capacity, 80)
-build_start(4, Gateway)
-build_start(4, Barracks, 30)
-build_start(3, Supply Depot, 30)
-
+message(Training Capital Ships)
 wait_force(4, Carrier)
-wait_force(2, Battlecruiser)
-wait_force(20, Dragoon)
-wait_force(10, Goliath)  # Halved
+wait_force(4, Battlecruiser)
 
+message(Training Support Units)
+wait_force(1, Observer)
+wait_force(1, Science Vessel)
+wait_force(1, Protoss Arbiter)
+
+message(Building Final Army)
+wait_force(4, Carrier)
+wait_force(3, Battlecruiser)
+wait_force(10, Dragoon)
+wait_force(5, Goliath)
+
+message(Launching Main Attack)
 attack_clear()
+check_transports()
 attack_add(3, Carrier)
 attack_add(3, Battlecruiser)
-attack_add(14, Dragoon)
-attack_add(14, Goliath)  # Halved
+attack_add(10, Dragoon)
+attack_add(5, Goliath)
+attack_add(1, Protoss Arbiter)
+
 attack_async()
 attack_clear()
 
 if random(64):
+    message(Random Dragoon/Goliath Attack)
     attack_clear()
     attack_add(4, Protoss Dragoon)
-    attack_add(2, Goliath)  # Halved
+    attack_add(2, Goliath)
     attack_async()
     attack_clear()

@@ -1,6 +1,7 @@
 use_build_vs(Zerg)
 farms_timing()
 
+message(Fast Expand Hybrid Build)
 build_start(4, Probe, 30)           # Halved (8 -> 4)
 build_start(4, SCV, 30)         # Halved (8 -> 4)
 expand(1, fast_expansion)
@@ -69,9 +70,6 @@ if random(128):
     
     wait_force(7, zealot)      # Halved (13 -> 7)
     wait_force(7, Marine)      # Halved (13 -> 7)
-    
-    attack_clear()
+   
     attack_add(7, zealot)      # Halved (13 -> 7)
     attack_add(7, Marine)      # Halved (13 -> 7)
-    attack_async()
-    attack_clear()
