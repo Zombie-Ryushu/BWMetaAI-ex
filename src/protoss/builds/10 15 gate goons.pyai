@@ -113,7 +113,7 @@ player_need(1, Science Facility)
 wait_build(1, Science Facility)
 player_need(1, Physics Lab)
 wait_build(1, Physics Lab)
-
+check_transports()
 message(Training Late game units)
 wait_force(2, Carrier)
 wait_force(1, Battlecruiser)

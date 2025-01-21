@@ -98,7 +98,7 @@ wait_force(2, Shuttle)    # For Reavers
 wait_force(2, Dropship)   # For Siege Tanks
 wait_force(2, Wraith)
 wait_force(2, Scout)
-
+check_transports()
 message(First Rush Attack)
 attack_add(2, Reaver)
 attack_add(3, Siege Tank)

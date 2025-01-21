@@ -2,74 +2,95 @@ use_build_vs(Zerg)
 farms_timing()
 
 message(Fast Expand Hybrid Build)
-build_start(4, Probe, 30)           # Halved (8 -> 4)
-build_start(4, SCV, 30)         # Halved (8 -> 4)
-expand(1, fast_expansion)
-build(7, Probe, 80)            # Halved (14 -> 7)
-build(7, SCV, 30)              # Halved (14 -> 7)
+build_start(1, Probe, 30)      # Initial workers
+build_start(1, SCV, 30)
+build(2, Probe, 80)            # Additional workers
+build(2, SCV, 30)
 
+message(Basic Production)
 wait_build(1, Gateway)
 wait_build(1, Barracks)
-wait_force(1, Zealot)          # Keep 1 since it's minimum
-wait_force(1, Marine)          # Keep 1 since it's minimum
+wait_force(1, Zealot)
+wait_force(1, Marine)
 defense_ground(Zealot)
 defense_ground(Marine)
 
+message(Core Tech)
 build_start(1, Pylon)
-build_start(1, Supply Depot, 30)
+build_start(1, Supply Depot)
 build_start(1, Assimilator)
 build_start(1, Cybernetics Core)
-build_start(1, Factory, 30)
+build_start(1, Factory)
 
+message(Support Tech)
 player_need(1, Forge)
 player_need(1, Engineering Bay)
 player_need(1, Academy)
 
-wait_force(2, zealot)          # Halved (3 -> 2)
-wait_force(2, Marine)          # Halved (3 -> 2)
+message(Initial Force)
+wait_force(2, Zealot)
+wait_force(2, Marine)
 
-upgrade(1, ground weapons, 80)
+message(Basic Upgrades)
+upgrade(1, Ground Weapons, 80)
 upgrade(1, Infantry Weapons, 30)
+expand(1, fast_expansion)
 
 if random(128):
-    build_start(2, Gateway)
-    build_start(2, Barracks, 30)
-    build_start(1, citadel of adun, 80)
-    build_start(3, Gateway)
-    build_start(3, Barracks, 30)
+    message(Production Expansion)
+    build_start(2, Gateway)        # Second Gateway
+    build_start(2, Barracks)       # Second Barracks
+    build_start(1, Citadel of Adun)
+    build_start(3, Gateway)        # Third Gateway
+    build_start(3, Barracks)       # Third Barracks
     
-    wait_force(2, zealot)      # Halved (4 -> 2)
-    wait_force(2, Marine)      # Halved (4 -> 2)
+    message(Force Build-up Phase 1)
+    wait_force(3, Zealot)
+    wait_force(3, Marine)
     
-    build_start(2, pylon)
-    build_start(2, Supply Depot, 30)
+    message(Supply Phase 1)
+    build_start(2, Pylon)
+    build_start(2, Supply Depot)
     
-    wait_force(3, zealot)      # Halved (5 -> 3)
-    wait_force(3, Marine)      # Halved (5 -> 3)
+    message(Force Build-up Phase 2)
+    wait_force(4, Zealot)
+    wait_force(4, Marine)
     
+    message(Advanced Upgrades)
     upgrade(1, Leg Enhancements, 30)
     tech(Stim Packs, 30)
     
-    wait_force(3, zealot)      # Halved (6 -> 3)
-    wait_force(3, Marine)      # Halved (6 -> 3)
+    message(Force Build-up Phase 3)
+    wait_force(5, Zealot)
+    wait_force(5, Marine)
     
-    build_start(3, pylon)
-    build_start(3, Supply Depot, 30)
+    message(Supply Phase 2)
+    build_start(3, Pylon)
+    build_start(3, Supply Depot)
     
-    wait_force(4, zealot)      # Halved (8 -> 4)
-    wait_force(4, Marine)      # Halved (8 -> 4)
+    message(Force Build-up Phase 4)
+    wait_force(6, Zealot)
+    wait_force(6, Marine)
     
-    build_start(4, pylon)
-    build_start(4, Supply Depot, 30)
+    message(Supply Phase 3)
+    build_start(4, Pylon)
+    build_start(4, Supply Depot)
     
-    wait_force(6, zealot)      # Halved (11 -> 6)
-    wait_force(6, Marine)      # Halved (11 -> 6)
+    message(Force Build-up Phase 5)
+    wait_force(7, Zealot)
+    wait_force(7, Marine)
     
-    build_start(5, pylon)
-    build_start(5, Supply Depot, 30)
+    message(Supply Phase 4)
+    build_start(5, Pylon)
+    build_start(5, Supply Depot)
     
-    wait_force(7, zealot)      # Halved (13 -> 7)
-    wait_force(7, Marine)      # Halved (13 -> 7)
+    message(Final Force)
+    wait_force(8, Zealot)
+    wait_force(8, Marine)
    
-    attack_add(7, zealot)      # Halved (13 -> 7)
-    attack_add(7, Marine)      # Halved (13 -> 7)
+    message(Attack Wave)
+    attack_clear()
+    attack_add(8, Zealot)
+    attack_add(8, Marine)
+    attack_async()
+    attack_clear()

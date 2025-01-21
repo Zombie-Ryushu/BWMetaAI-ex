@@ -1,92 +1,227 @@
 use_build_vs(Zerg)
-message(Single Gate Expansion Build)
+farms_timing()
 
-8 Pylon
-8 Supply Depot
-10 Gateway
-10 Barracks
-12 Pylon
-12 Supply Depot
-13 Zealot
-13 Marine
-17 Zealot
-17 Marine
-18 Core
-18 Factory
-19 Engineering Bay
-19 Academy
-20 Armory
-21 Expand
-22 Zealot
-22 Marine
-24 Pylon
-24 Supply Depot
+message(Safer Hybrid Expand Build)
 
-build_start(1, assimilator)
-build(10, probe, 75)
-build(10, SCV, 30)  # Halved
+# Early defense before expand
+build_start(1, Probe, 30)
+build_start(1, SCV, 30)
+player_need(1, Gateway)
+wait_build(1, Gateway)
+player_need(1, Barracks)
+wait_build(1, Barracks)
+wait_force(2, Zealot)
+wait_force(2, Marine)
+defense_ground(Zealot)
+defense_ground(Marine)
 
-# Consolidate tech structure requests
+build(4, Probe, 80)
+build(4, SCV, 30)
+
+message(Core Tech Development)
+build_start(1, Pylon)
+build_start(1, Supply Depot)
+build_start(1, Assimilator)
+
 multirun_loop:
-    player_need(1, Cybernetics Core)
-    player_need(1, Engineering Bay)
-    player_need(1, Academy)
-    player_need(1, Factory)
-    player_need(1, Armory)
-    player_need(1, Forge)
-    player_need(1, citadel of adun)
-    player_need(1, Stargate)
-    player_need(1, Starport)
+    message(Protoss Tech Tree Development)
     
-wait_build(1, Cybernetics Core)
-wait_build(1, Factory)
+    message(Basic Protoss Tech)
+    player_need(1, Cybernetics Core)
+    wait_build(1, Cybernetics Core)
+    wait_force(2, Dragoon)
+    
+    message(Advanced Protoss Tech)
+    player_need(1, Citadel of Adun)
+    wait_build(1, Citadel of Adun)
+    player_need(1, Templar Archives)
+    wait_build(1, Templar Archives)
+    
+    message(Protoss Air Tech)
+    player_need(1, Stargate)
+    wait_build(1, Stargate)
+    player_need(1, Fleet Beacon)
+    wait_build(1, Fleet Beacon)
+    
+    message(Protoss Robotics Tech)
+    player_need(1, Robotics Facility)
+    wait_build(1, Robotics Facility)
+    player_need(1, Robotics Support Bay)
+    wait_build(1, Robotics Support Bay)
+    
+    message(Final Protoss Tech)
+    player_need(1, Arbiter Tribunal)
+    wait_build(1, Arbiter Tribunal)
+    build_start(2, Gateway)
+    build_start(3, Gateway)
+    build_start(4, Gateway)
+    wait_force(6, Zealot)
+    wait_force(6, Dragoon)
+    message(Researching Upgrades)
+    upgrade(1, Ground Weapons, 80)
+    upgrade(1, Leg Enhancements, 30)
+    tech(Psionic Storm, 30)
+    message(Protoss Tech Tree Complete)
+    stop()
 
-wait_force(4, zealot)
-wait_force(2, Marine)  # Halved
+# Terran Tech Tree Development Loop
+multirun_loop:
+    message(Terran Tech Tree Development)
+    
+    message(Basic Terran Tech)
+    player_need(1, Engineering Bay)
+    wait_build(1, Engineering Bay)
+    player_need(1, Academy)
+    wait_build(1, Academy)
+    
+    message(Factory Tech)
+    player_need(1, Factory)
+    wait_build(1, Factory)
+    player_need(1, Machine Shop)
+    wait_build(1, Machine Shop)
+    
+    message(Advanced Terran Tech)
+    player_need(1, Armory)
+    wait_build(1, Armory)
+    
+    message(Terran Air Tech)
+    player_need(1, Starport)
+    wait_build(1, Starport)
+    player_need(1, Control Tower)
+    wait_build(1, Control Tower)
+    
+    message(Science Tech)
+    player_need(1, Science Facility)
+    wait_build(1, Science Facility)
+    player_need(2, Science Facility)
+    wait_build(2, Science Facility)
+    
+    message(Final Terran Tech)
+    player_need(2, Covert Ops)
+    wait_build(2, Covert Ops)
+    player_need(1, Physics Lab)
+    wait_build(1, Physics Lab)
+    
+    message(Additional Factory Production)
+    player_need(2, Factory)
+    wait_build(2, Factory)
+    player_need(2, Machine Shop)
+    wait_build(2, Machine Shop)
+    player_need(3, Factory)
+    wait_build(3, Factory)
+    player_need(3, Machine Shop)
+    wait_build(3, Machine Shop)
+    build_start(2, Barracks)
+    build_start(3, Barracks)
+    build_start(4, Barracks)
+    upgrade(1, Infantry Weapons, 30)
+    tech(Stim Packs, 30)
+    tech(Tank Siege Mode, 150)
+    tech(Lockdown, 30)
+    tech(Personnel Cloaking, 30)
 
-upgrade(1, ground weapons, 30)
-upgrade(1, Infantry Weapons, 30)
+    wait_force(6, Marine)
+    wait_force(4, Medic)
 
-wait_force(5, zealot)
-wait_force(3, Marine)  # Halved
+    message(Terran Tech Tree Complete)
 
-build_start(1, stargate)
-build_start(1, Starport)
-build_start(1, Control Tower, 30)  # Added for air units
+        # Production Expansion
+    message(Expanding Production)
 
-wait_force(3, zealot)
-wait_force(3, Marine)  # Halved
+    # Upgrades
 
-build_start(1, citadel of adun)
-wait_build(1, Stargate)
-wait_build(1, Starport)
-do_morph(1, corsair)
-train(1, Wraith)
+    message(Train Probes and SCVs to economy strong)
+    build(8, Probe, 80)
+    build(8, SCV, 30)
+    build_finish(4, Barracks)
+    build_finish(4, Gateway)
+    check_transports()
 
-wait_force(4, zealot)
-wait_force(4, Marine)  # Halved
-
-build_start(4, gateway)
-build_start(4, Barracks)
-build_start(5, Supply Depot)
-
-wait_force(1, corsair)
-attack_clear()
-attack_add(1, corsair)
-attack_add(1, Wraith)
-attack_async()
-attack_clear()
-
-wait_build(1, citadel of adun)
-upgrade(1, leg enhancements, 30)
-build(20, probe, 80)
-build(10, SCV, 30)  # Halved
-
-if random(128):
-    wait_force(6, zealot)
-    wait_force(6, Marine)  # Halved
+    # First Attack Wave
+    message(First Attack Wave)
+    wait_force(3, Shuttle)
+    wait_force(3, Dropship)
+    wait_force(6, Zealot)
+    wait_force(6, Dragoon)
     attack_clear()
-    attack_add(5, zealot)
-    attack_add(6, Marine)  # Halved
+    attack_add(6, Zealot)
+    attack_add(6, Marine)
+    attack_add(6, Dragoon)
+    wait_force(4, Medic)
     attack_async()
     attack_clear()
+
+    message(Building Additional Robotics Production)
+    player_need(2, Robotics Facility)
+    wait_build(2, Robotics Facility)
+    tech(Tank Siege Mode, 150)
+    upgrade(1, Infantry Weapons, 30)
+    upgrade(1, Infantry Armor, 30)
+    upgrade(1, Vehicle Weapons, 30)
+    upgrade(1, Vehicle Plating, 30)
+    upgrade(1, Ship Weapons, 80)
+    upgrade(1, Ship Plating, 80)
+
+    player_need(3, Robotics Facility)
+    wait_build(3, Robotics Facility)
+    check_transports()
+    # Second Attack Wave with Special Units
+    message(Second Attack Wave)
+    wait_force(6, Zealot)
+    wait_force(6, Marine)
+    wait_force(3, Dragoon)
+    wait_force(2, High Templar)
+    wait_force(2, Ghost)
+    wait_force(2, Siege Tank)
+    attack_clear()
+    attack_add(6, Zealot)
+    attack_add(6, Marine)
+    attack_add(3, Dragoon)
+    attack_add(2, High Templar)
+    attack_add(2, Ghost)
+    attack_add(2, Siege Tank)
+    attack_async()
+    attack_clear()
+    message(Protected Expansion)
+    expand(1, fast_expansion)
+
+    # Enemy Response Logic
+    if enemyowns(Spire):
+        message(Anti-Air Response)
+        wait_force(6, Dragoon)
+        attack_add(6, Dragoon)
+        attack_async()
+        attack_clear()
+
+    if enemyowns(Hydralisk Den):
+        message(Anti-Hydra Response)
+        wait_force(4, Siege Tank)
+        wait_force(2, High Templar)
+        wait_force(2, Ghost)
+        attack_add(4, Siege Tank)
+        attack_add(2, High Templar)
+        attack_add(2, Ghost)
+        attack_async()
+        attack_clear()
+
+    # Final Attack Wave
+    message(Final Attack Wave)
+    wait_force(8, Zealot)
+    wait_force(8, Marine)
+    wait_force(4, Dragoon)
+    wait_force(3, Siege Tank)
+    wait_force(2, High Templar)
+    wait_force(2, Ghost)
+    wait_force(1, Arbiter)
+    attack_clear()
+    attack_add(8, Zealot)
+    attack_add(8, Marine)
+    attack_add(4, Dragoon)
+    attack_add(3, Siege Tank)
+    attack_add(2, High Templar)
+    attack_add(2, Ghost)
+    attack_add(1, Arbiter)
+    attack_async()
+    attack_clear()
+    stop()
+attack_clear()

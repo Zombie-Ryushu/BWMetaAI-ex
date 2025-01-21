@@ -81,7 +81,7 @@ wait_build(3, Robotics Facility)
 
 message(Expanding to Natural)
 expand(1, expansion)
-
+check_transports()
 message(Training Initial Rush Force)
 wait_force(2, Reaver)
 wait_force(3, Siege Tank)

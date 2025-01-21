@@ -123,7 +123,7 @@ wait_build(1, Armory)
 
 message(Waiting for Tech Structures)
 wait_build(3, Factory)
-
+check_transports()
 message(Training Core Army)
 wait_force(2, Dragoon)
 wait_force(2, Goliath)
