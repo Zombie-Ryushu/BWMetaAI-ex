@@ -15,12 +15,13 @@ message(Starting 1 Gate Zealot Hybrid Build)
 18 Factory
 
 message(Building Core Tech Structures)
-player_need(1, Core)
-player_need(1, Engineering Bay)
-player_need(1, Academy)
-player_need(1, Factory)
-player_need(1, Armory)
-player_need(1, Machine Shop)
+build_start(1, Core)
+build_start(1, Engineering Bay)
+build_start(1, Academy)
+build_start(1, Factory)
+build_start(1, Armory)
+build_start(1, Machine Shop)
+build_start(1, Starport)
 
 if random(192):
     message(Random Early Attack)
