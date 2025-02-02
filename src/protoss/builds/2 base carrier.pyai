@@ -21,6 +21,8 @@ wait_build(1, Protoss Gateway)
 wait_build(1, Barracks)
 wait_build(1, Protoss Cybernetics Core)
 wait_build(1, Factory)
+train(8, Marine)
+train(10, Zealot)
 
 message(Researching Range Upgrade)
 upgrade(1, Singularity Charge, 150)
@@ -31,6 +33,8 @@ build_start(1, Academy)
 build_start(1, Factory)
 build_start(1, Machine Shop)
 build_start(1, Armory)
+train(8, Dragoon)
+train(10, Goliath)
 
 message(Expanding Production)
 build_start(2, Protoss Gateway)
@@ -51,18 +55,22 @@ build_start(3, Supply Depot, 30)
 
 message(Building Air Tech - Stage 1)
 build_start(1, Stargate)
-build_start(1, Starport)
-build_start(1, Control Tower)
 wait_build(1, Stargate)
+
+build_start(1, Starport)
 wait_build(1, Starport)
+
+build_start(1, Control Tower)
 wait_build(1, Control Tower)
 
 message(Building Air Production Capacity)
 build_start(2, Stargate)
-build_start(2, Starport)
-build_start(2, Control Tower)
 wait_build(2, Stargate)
+
+build_start(2, Starport)
 wait_build(2, Starport)
+
+build_start(2, Control Tower)
 wait_build(2, Control Tower)
 
 message(Building Advanced Tech - Stage 2)

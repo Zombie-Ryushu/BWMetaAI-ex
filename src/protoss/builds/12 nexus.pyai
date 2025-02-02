@@ -10,10 +10,6 @@ build_start(1, Supply Depot, 30)
 build_start(6, Probe, 150)
 build_start(6, SCV, 30)
 
-message(Fast Expanding)
-wait(300)
-expand(1, expansion)
-
 message(Building Economy)
 build_start(6, Probe, 30)
 build_start(6, SCV, 30)
@@ -31,6 +27,9 @@ wait_build(1, Gateway)
 
 build_start(1, Core)
 wait_build(1, Core)
+
+build_start(1, Forge)
+wait_build(1, Forge)
 
 build_start(1, Barracks)
 wait_build(1, Barracks)
@@ -59,6 +58,20 @@ message(Building Advanced Tech)
 build_start(1, Protoss Citadel of Adun)
 wait_build(1, Protoss Citadel of Adun)
 
+message(Training Initial Rush Force)
+wait_force(8, Marine)
+wait_force(8, Zealot)
+wait_force(3, Siege Tank)
+wait_force(4, Dragoon)  # Anti-air support
+
+message(First Rush Attack)
+attack_add(8, Marine)
+attack_add(8, Zealot)
+attack_add(3, Siege Tank)
+attack_add(4, Dragoon)
+attack_async()
+
+message(Building Stargate and Star Port)
 build_start(1, Stargate)
 wait_build(1, Stargate)
 
@@ -68,29 +81,50 @@ wait_build(1, Starport)
 build_start(1, Control Tower)
 wait_build(1, Control Tower)
 
+message(Building Fleet Beacon)
 build_start(1, Fleet Beacon)
 wait_build(1, Fleet Beacon)
 
+message(Building First Science Facility for Physics Lab)
 build_start(1, Science Facility)
 wait_build(1, Science Facility)
 
 build_start(1, Physics Lab)
 wait_build(1, Physics Lab)
 
+message(Building Second Science Facility for Covert Ops)
 build_start(2, Science Facility)
 wait_build(2, Science Facility)
 
 build_start(2, Covert Ops)
 wait_build(2, Covert Ops)
 
+message(Nuclear Silo)
+build_start(2, Command Center)
+wait_build(2, Command Center)
+
+build_start(2, Nuclear Silo)
+wait_build(2, Nuclear Silo)
+
+message(Building Robotics)
+build_start(1, Robotics Facility)
+wait_build(1, Robotics Facility)
+
+message(Building Templar Archives) 
+build_start(1, Protoss Templar Archives)
+wait_build(1, Protoss Templar Archives)
+
 build_start(1, Robotics Support Bay)
 wait_build(1, Robotics Support Bay)
 
-build_start(1, Protoss Citadel of Adun)
-wait_build(1, Protoss Citadel of Adun)
+build_start(2, Robotics Support Bay)
+wait_build(2, Robotics Support Bay)
 
-build_start(1, Protoss Templar Archives)
-wait_build(1, Protoss Templar Archives)
+build_start(1, Protoss Observatory)
+wait_build(1,Protoss Observatory)
+
+build_start(1, Protoss Arbiter Tribunal)
+wait_build(1, Protoss Arbiter Tribunal)
 
 message(Training More Workers)
 build_start(8, Probe, 30)
@@ -151,6 +185,7 @@ wait_force(2, Goliath)
 wait_force(2, Wraith)
 wait_force(5, Marine)
 wait_force(5, Scout)
+wait_force(10, Dragoon)
 
 message(Building Final Supply)
 build_start(3, Pylon)
@@ -169,3 +204,6 @@ attack_add(10, Dragoon)
 message(Attacking)
 attack_async()
 attack_clear()
+
+message(Expanding to Natural)
+expand(1, expansion)

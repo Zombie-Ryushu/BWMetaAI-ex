@@ -29,7 +29,8 @@ multirun_loop:
     message(Basic Protoss Tech)
     build_start(1, Cybernetics Core)
     wait_build(1, Cybernetics Core)
-    wait_force(2, Dragoon)
+    train(10, Marine)
+    train(12, Dragoon)
     
     message(Advanced Protoss Tech)
     build_start(1, Citadel of Adun)
@@ -48,7 +49,11 @@ multirun_loop:
     wait_build(1, Robotics Facility)
     build_start(1, Robotics Support Bay)
     wait_build(1, Robotics Support Bay)
-    
+    build_start(1, Observatory)
+    wait_build(1, Observatory)
+    build_start(1, Stargate)
+    wait_build(1, Stargate)
+   
     message(Final Protoss Tech)
     build_start(1, Arbiter Tribunal)
     wait_build(1, Arbiter Tribunal)
@@ -102,6 +107,13 @@ multirun_loop:
     build_start(1, Physics Lab)
     wait_build(1, Physics Lab)
     
+    message(Nuclear Silo)
+    build_start(2, Command Center)
+    wait_build(2, Command Center)
+
+    build_start(2, Nuclear Silo)
+    wait_build(2, Nuclear Silo)
+
     message(Additional Factory Production)
     build_start(2, Factory)
     wait_build(2, Factory)

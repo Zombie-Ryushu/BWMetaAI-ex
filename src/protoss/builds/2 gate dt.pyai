@@ -63,6 +63,14 @@ build_start(1, Covert Ops)
 wait_build(1, Covert Ops)
 wait_build(1, Academy)
 wait_build(1, Observatory)
+
+message(Nuclear Silo)
+build_start(2, Command Center)
+wait_build(2, Command Center)
+
+build_start(2, Nuclear Silo)
+wait_build(2, Nuclear Silo)
+
 tech(Lockdown, 30)
 tech(Psionic Storm, 30)
 message(Training Special Forces)

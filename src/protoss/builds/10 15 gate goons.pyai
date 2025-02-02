@@ -66,7 +66,6 @@ attack_add(3, Goliath)
 
 message(Attacking.)
 attack_async()
-attack_clear()
 
 if random(128):
     message(Random build Pylons and Supply Depots)
@@ -113,7 +112,20 @@ build_start(1, Science Facility)
 wait_build(1, Science Facility)
 build_start(1, Physics Lab)
 wait_build(1, Physics Lab)
+
+message(Building Second Science Facility for Covert Ops)
+build_start(2, Science Facility)
+wait_build(2, Science Facility)
+build_start(2, Covert Ops)
+wait_build(2, Covert Ops)
+
 check_transports()
+message(Building Observatory and Arbiter Tribunal)
+build_start(1, Protoss Observatory)
+wait_build(1, Protoss Observatory)
+build_start(1, Protoss Arbiter Tribunal)
+wait_build(1, Protoss Arbiter Tribunal)
+
 message(Training Late game units)
 wait_force(2, Carrier)
 wait_force(1, Battlecruiser)
