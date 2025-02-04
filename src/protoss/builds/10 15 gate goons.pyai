@@ -123,8 +123,6 @@ check_transports()
 message(Building Observatory and Arbiter Tribunal)
 build_start(1, Protoss Observatory)
 wait_build(1, Protoss Observatory)
-build_start(1, Protoss Arbiter Tribunal)
-wait_build(1, Protoss Arbiter Tribunal)
 
 message(Training Late game units)
 wait_force(2, Carrier)

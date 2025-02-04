@@ -1,5 +1,5 @@
 use_attack_vs(Terran, Protoss)
-
+message(Carrier and Battlecruiser Attack wave)
 if owned(Fleet Beacon):
     if owned(Arbiter Tribunal):
         attack_train(1, Arbiter)

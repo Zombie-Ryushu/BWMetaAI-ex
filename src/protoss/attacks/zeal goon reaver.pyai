@@ -1,5 +1,5 @@
 use_attack_vs(Protoss)
-
+message(Dragoon and Reaver with Seige Tank)
 if owned(stargate):
     if owned(arbiter tribunal):
         attack_train(1, Arbiter)
@@ -22,5 +22,59 @@ if owned(Robotics Support Bay):
     attack_train(1, Reaver)
     attack_train(1, Siege Tank)  # Added Siege Tank support
     attack_train(1, Shuttle)
-    
+
+message(Training Initial Rush Force with Transports)
+attack_train(2, Reaver)
+attack_train(3, Siege Tank)
+attack_train(4, Dragoon)
+attack_train(2, Shuttle)    # For Reavers
+attack_train(2, Dropship)   # For Siege Tanks
+attack_train(2, Wraith)
+attack_train(2, Scout)
+check_transports()
+message(First Rush Attack)
+attack_add(2, Reaver)
+attack_add(3, Siege Tank)
+attack_add(4, Dragoon)
+attack_add(4, Wraith)
+attack_add(2, Scout)
+
+attack_async()
+
+message(Training Second Wave)
+attack_train(3, Reaver)
+attack_train(4, Siege Tank)
+attack_train(6, Dragoon)
+attack_train(3, Shuttle)
+attack_train(3, Dropship)
+attack_train(4, Wraith)
+attack_train(4, Scout)
+
+message(Second Rush Attack)
+attack_add(3, Reaver)
+attack_add(4, Siege Tank)
+attack_add(6, Dragoon)
+attack_add(3, Shuttle)
+attack_add(4, Wraith)
+attack_add(4, Scout)
+attack_async()
+
+message(Training Final Wave)
+attack_train(4, Reaver)
+attack_train(6, Siege Tank)
+attack_train(8, Dragoon)
+attack_train(4, Shuttle)
+attack_train(4, Dropship)
+attack_train(4, Wraith)
+attack_train(4, Scout)
+
+message(Final Rush Attack)
+attack_add(4, Reaver)
+attack_add(6, Siege Tank)
+attack_add(8, Dragoon)
+attack_add(4, Wraith)
+attack_add(4, Scout)
+attack_async()
+
+
 attack_simple()

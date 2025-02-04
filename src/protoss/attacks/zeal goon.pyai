@@ -1,7 +1,7 @@
 use_attack_vs(Terran)
 
 attack_clear()
-
+message(Attack wave with Zealots Dragoons Goliaths)
 if owned(stargate):
     if owned(arbiter tribunal):
         wait_build(1, Science Facility)  # Science Vessel prerequisite

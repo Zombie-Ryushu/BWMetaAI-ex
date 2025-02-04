@@ -1,5 +1,5 @@
 use_attack_vs(Zerg)
-
+message(Attack wave for Archons and Templar)
 if owned(Cybernetics Core):
     attack_multiple(2, 7 Zealot, 2 Dragoon)
 

@@ -10,9 +10,6 @@ build_start(1, Supply Depot, 30)
 build_start(6, Probe, 150)
 build_start(6, SCV, 30)
 
-message(Fast Expanding)
-wait(300)
-expand(1, expansion)
 
 message(Building Economy)
 build_start(6, Probe, 30)
@@ -94,6 +91,8 @@ build_start(10, SCV, 30)
 message(Preparing Attack Force)
 wait_force(2, Dragoon)
 wait_force(2, Goliath)
+
+expand(1, expansion)
 
 message(Attacking)
 attack_clear()

@@ -102,10 +102,14 @@ wait_build(2, Science Facility)
 build_start(2, Covert Ops)
 wait_build(2, Covert Ops)
 
+message(Build Stargate)
+build_start(1, Stargate)
+wait_build(1, Stargate)
+
 build_start(1, Templar Archives)
 wait_build(1, Templar Archives)
 
-message(Stargate path)
+message(Build Fleet Beacon)
 build_start(1, Fleet Beacon)
 wait_build(1, Fleet Beacon)
 
@@ -178,9 +182,6 @@ attack_async()
 message(Templar Archives)
 build_start(2, Protoss Templar Archives)
 wait_build(2, Protoss Templar Archives)
-
-build_start(2, Protoss Arbiter Tribunal)
-wait_build(2, Protoss Arbiter Tribunal)
 
 message(Expanding to Natural)
 expand(1, expansion)

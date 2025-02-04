@@ -49,10 +49,6 @@ message(Training Mid-Game Army)
 wait_force(2, Protoss Dragoon)
 wait_force(1, Goliath)
 
-message(Building Supply)
-build_start(3, Protoss Pylon, 80)
-build_start(3, Supply Depot, 30)
-
 message(Building Air Tech - Stage 1)
 build_start(1, Stargate)
 wait_build(1, Stargate)
