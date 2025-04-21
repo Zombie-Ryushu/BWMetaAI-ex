@@ -1,0 +1,51 @@
+use_build_vs(Terran)
+message(Starting Gate Zealot Build)
+8 Pylon
+10 Gateway
+12 Assimilator
+13 Zealot
+16 Pylon
+18 Core
+
+if random(192):
+    attack_add(1, Zealot)
+    attack_async()
+
+train(3, Zealot)
+wait_build(1, Cybernetics Core)
+upgrade(1, Singularity Charge, 150)
+build_start(3, Protoss Pylon, 80)
+
+train(1, Dragoon)
+build_start(16, Protoss Probe, 80)
+
+build_start(17, Protoss Probe, 80)
+expand(1, expansion)
+
+build_start(19, Protoss Probe, 80)
+attack_add(2, Zealot)
+attack_add(1, Dragoon)
+attack_async()
+
+build_start(2, Protoss Gateway)
+build_start(3, Protoss Gateway)
+build_start(4, Terran SCV)
+build_start(1, Terran Supply Depot)
+build_start(1, Terran Barracks)
+build_start(1, Terran Factory)
+build_start(2, Terran Supply Depot)
+build_start(10, Terran SCV)
+wait_build(1, Terran Factory)
+build_start(1, Terran Machine Shop)
+build_start(2, Terran Factory)
+build_start(2, Terran SCV)
+tech(Tank Siege Mode, 80)
+build_start(3, Terran Supply Depot)
+build_start(1, Starport)
+build_start(1, Control Tower)
+build_start(1, Science Facility)
+build_start(1, Physics Lab)
+build_start(1, Academy)
+build_start(1, Engineering Bay)
+build_start(1, Armory)
+train(1, Terran Siege Tank)

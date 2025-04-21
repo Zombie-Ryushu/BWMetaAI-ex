@@ -31,12 +31,13 @@ build_start(1, Academy, 80)
 build_start(1, Factory, 80)
 build_start(1, Machine Shop, 80)
 build_start(1, Armory, 80)
+upgrade(1, U-238 Shells, 30)
 wait(100)  # Wait to manage game frame rate
 
 # More Workers and Initial Defense
 build_start(20, Probe, 80)
-train(4, Dragoon)
-train(4, Marine)
+train(2, Dragoon, 80)
+train(2, Marine, 80)
 wait(100)  # Wait to manage game frame rate
 
 defense_ground(Dragoon)
@@ -44,12 +45,23 @@ defense_ground(Dragoon)
 # Supply and Defense Units
 build_start(3, Pylon, 80)
 build_start(3, Supply Depot, 80)
+train(4, Dragoon, 80)
+train(4, Goliath, 80)
 build_start(20, Probe, 80)
 wait(100)  # Wait to manage game frame rate
 
+# Random Attack Decision
+if random(64):
+    attack_clear()  # Clear previous attack data
+    attack_train(4, Dragoon)
+    attack_train(4, Goliath)
+    attack_simple()
+    wait(100)  # Wait to manage game frame rate
 
 # Mid-Game Transition
+train(2, Dragoon, 80)
 build_start(1, Robotics Facility)
+train(6, Dragoon)
 build_start(1, Observatory, 80)
 wait(100)  # Wait to manage game frame rate
 
@@ -58,20 +70,53 @@ build_start(1, Stargate, 80)
 build_start(1, Starport, 80)
 build_start(1, Control Tower, 80)
 upgrade(1, Air Weapons, 30)
-train(8, Dragoon)
+train(8, Dragoon, 80)
 build_start(2, Stargate, 80)
 build_start(1, Fleet Beacon, 80)
 build_start(2, Starport, 80)
 build_start(2, Control Tower, 80)
 build_start(1, Science Facility, 80)
 build_start(1, Physics Lab, 80)
+build_finish(5, Supply Depot, 50)
+build_start(6, Supply Depot, 50)
+build_start(7, Supply Depot, 50)
 wait(100)  # Wait to manage game frame rate
 
 # Final Units and Upgrades
+train(10, Dragoon, 80)
+train(1, Carrier, 80)
+train(1, Battlecruiser, 80)
+train(1, Observer, 80)
+train(6, Dragoon, 80)
+train(6, Goliath, 80)
 upgrade(1, Carrier Capacity, 80)
 tech(Yamato Gun, 30)
 build_start(4, Gateway, 80)
+wait(100)  # Wait to manage game frame rate
 
-expand(1, expansion)
+train(4, Carrier, 80)
+wait(100)  # Small wait to ensure production starts
+wait_force(3, Carrier)
+wait(200)  # Additional wait to prevent hang if units are destroyed
 
+train(4, Battlecruiser, 80)
+wait(100)  # Small wait to ensure production starts
+wait_force(3, Battlecruiser)
+wait(200)  # Additional wait to prevent hang if units are destroyed
 
+train(10, Dragoon, 80)
+train(10, Goliath, 80)
+wait(100)  # Wait to manage game frame rate
+
+# Final Attack Preparation
+attack_clear()  # Clear previous attack data
+attack_train(3, Carrier)
+attack_train(3, Battlecruiser)
+attack_train(14, Dragoon)
+attack_train(14, Goliath)
+wait(100)  # Wait to manage game frame rate
+wait_force(3, Carrier)
+wait(200)  # Additional wait to prevent hang if units are destroyed
+wait_force(3, Battlecruiser)
+wait(200)  # Additional wait to prevent hang if units are destroyed
+attack_simple()

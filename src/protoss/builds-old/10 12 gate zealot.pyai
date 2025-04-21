@@ -1,0 +1,20 @@
+use_build_vs(Zerg, Protoss)
+build_weight(.5)
+8 Pylon
+10 Gateway
+12 Gateway
+13 Zealot
+defensebuild_gg(1, Zealot)
+15 Pylon
+train(3, Zealot)
+build_start(1, Assimilator)
+build_start(3, Pylon)
+train(5, Zealot)
+build_start(1, Cybernetics Core)
+build_start(18, Probe)
+attack_add(5, Zealot)
+attack_async()
+build_start(4, Pylon)
+build_start(20, Probe)
+train(1, Dragoon)
+expand(1, expansion)

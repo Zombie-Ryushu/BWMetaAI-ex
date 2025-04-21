@@ -1,0 +1,56 @@
+use_build_vs(Terran)
+8 Pylon
+10 Gateway
+10 Barracks
+11 Assimilator
+11 Supply Depot
+13 Core
+13 Academy
+13 Armory
+13 Engineering Bay
+15 Gateway
+15 Factory
+
+message(Starting Gate Goons Build)
+build_start(2, Barracks)
+wait_build(1, Core)
+upgrade(1, Singularity Charge, 80)
+train(1, Dragoon)
+wait(100)
+build_start(2, Pylon)
+build_start(2, Supply Depot)
+build_start(2, Factory)
+wait_build(1, Factory)
+build_start(1, Machine Shop)
+build_start(1, Academy)
+build_start(1, Engineering Bay)
+build_start(1, Armory)
+wait(100)
+build_start(3, Supply Depot)
+build_start(4, Supply Depot)
+train(3, Dragoon)
+train(3, Goliath)
+wait(100)
+build_start(16, Probe)
+build_start(3, Pylon)
+build_start(17, Probe)
+train(5, Dragoon)
+train(5, Goliath)
+wait(100)
+
+attack_async()
+
+if random(128):
+    build_start(4, Pylon)
+    build_start(4, Supply Depot)
+    wait(100)
+    attack_train(8, Dragoon)
+    attack_train(8, Goliath)
+    wait(100)
+    wait_force(8, Dragoon)
+    wait(200)
+    wait_force(8, Goliath)
+    wait(200)
+    attack_async()
+
+expand(1, expansion)

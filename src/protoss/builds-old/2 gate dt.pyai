@@ -1,0 +1,40 @@
+use_build_vs(Protoss, Terran)
+build_weight(.25)
+
+message(Starting Gate Dark Templar Build)
+
+defenseclear()
+8 Protoss Pylon
+10 Protoss Gateway
+12 Protoss Assimilator
+13 Protoss Cybernetics Core
+10 Barracks
+11 Supply Depot
+13 Academy
+13 Armory
+13 Engineering Bay
+15 Factory
+build_start(1, Barracks)
+train(1, Marine)
+train(1, Protoss Zealot)
+build_start(7, Protoss Probe, 80)
+build_start(2, Protoss Pylon, 80)
+build_start(8, Protoss Probe, 80)
+build_start(2, Supply Depot)
+build_start(2, Factory)
+build_start(1, Academy)
+build_start(1, Engineering Bay)
+build_start(1, Armory)
+build_start(1, Machine Shop)
+train(1, Protoss Dragoon)
+train(1, Goliath)
+build_start(1, Protoss Citadel of Adun)
+build_start(20, Protoss Probe, 80)
+build_start(1, Protoss Templar Archives)
+build_start(2, Protoss Gateway)
+build_start(3, Protoss Pylon)
+wait_build(1, Protoss Templar Archives)
+attack_train(2, Dark Templar)
+wait_force(2, Dark Templar)
+attack_simple()
+expand(1, expansion)
